@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    let input = document.getElementById(`city-name`)
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("btn-get").click();
+        }
+      });
     $(`#btn-get`).click(function(){
         if($(`#option`).val() == 'Celcius'){
                     alert(`true`)
