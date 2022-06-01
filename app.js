@@ -1,10 +1,10 @@
 $(document).ready(function () {
     $(`#btn-get`).click(function(){
-        if($(`#option`)==$(`#celc`)){
-                    
+        if($(`#option`).val() == 'Celcius'){
+                    alert(`true`)
         }
         let api=`https://api.weatherapi.com/v1/current.json?key=6bc15cfb31414fbda9f95625221905&q=`
-        let askedCity = $(`#city-name`).val()
+        let askedCity = $(`#city-name`).val().toLowerCase()
         axios.get(api+askedCity)
         .then(function(response){
             console.log(response);
