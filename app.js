@@ -14,8 +14,6 @@ $(document).ready(function () {
         .then(function(response){
             console.log(response);
             let weather = response.data
-            // let image =  document.createElement(`img`)
-            // image.setAttribute(`src`, `weather.current.condition.icon)`)
             if (option.value==`Celcius`) {
                 $(`#weather`).text("Weather Forecast: "+weather.current.temp_c);
             }
