@@ -13,15 +13,18 @@ $(document).ready(function () {
         axios.get(api+askedCity)
         .then(function(response){
             console.log(response);
+            let weather = response.data
+            // let image =  document.createElement(`img`)
+            // image.setAttribute(`src`, `weather.current.condition.icon)`)
             if (option.value==`Celcius`) {
-                $(`#weather`).text("Weather Forecast: "+response.data.current.temp_c);
+                $(`#weather`).text("Weather Forecast: "+weather.current.temp_c);
             }
             else{
-                $(`#weather`).text("Weather Forecast: "+response.data.current.temp_f);
+                $(`#weather`).text("Weather Forecast: "+weather.current.temp_f);
             }
-            $(`#city`).text("City: "+ response.data.location.name);
-            $(`#country`).text("Country: "+response.data.location.country);
-            $(`#sky`).text("Sky Condition: "+response.data.current.condition.text)
+            $(`#city`).text("City: "+ weather.location.name);
+            $(`#country`).text("Country: "+weather.location.country);
+            $(`#sky`).html("Sky Condition: "+weather.current.condition.text)
         })
         .catch(function(error){
             $(`#add`).html(error.response.data.error.message)
