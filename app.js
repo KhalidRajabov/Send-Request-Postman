@@ -24,7 +24,7 @@ $(document).ready(function () {
             }
             $(`#city`).text("City: "+ weather.location.name);
             $(`#country`).text("Country: "+weather.location.country);
-            $(`#sky`).html("Sky Condition: "+weather.current.condition.text)
+            $(`#sky`).html("Sky Condition: "+ `<img src="${weather.current.condition.icon}" alt="" width="60">` + `${weather.current.condition.text}`)
         })
         .catch(function(error){
             $(`#add`).html(error.response.data.error.message)
